@@ -6,10 +6,10 @@ import pandas as pd
 from model import ClusteringFunction, PreprocessFunction, InputFunction
 from clusteringfunctions import Dbscan, Agglomerative
 from inputfunctions import GeminiDescriptions, ChatGPTDescriptions, getTokens
-from preprocessfunctions import SentenceEmbeddings
+from preprocessfunctions import SentenceEmbeddings, CrossEncoder
 
 clustering_functions: list[ClusteringFunction] = [Dbscan(), Agglomerative()]
-preprocess_functions: list[PreprocessFunction] = [SentenceEmbeddings()]
+preprocess_functions: list[PreprocessFunction] = [SentenceEmbeddings(), CrossEncoder()]
 input_functions: list[InputFunction] = [GeminiDescriptions(), ChatGPTDescriptions()]
 
 tokens = getTokens()
@@ -21,6 +21,6 @@ outputs = [(e[0], e[1], c.name, c.run(tokens, embeddings=e[2][0], distances=e[2]
 print("Performed clustering")
 
 for o in outputs:
-    o[3].to_csv(f"{o[0]}_{o[1]}_{o[2]}.csv")
+    o[3].to_csv(f"./outputs/{o[0]}_{o[1]}_{o[2]}.csv")
 
 print("Wrote outputs")

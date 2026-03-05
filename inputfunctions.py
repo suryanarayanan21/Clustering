@@ -15,7 +15,7 @@ class GeminiDescriptions(InputFunction):
     def run(self) -> list[str]:
         with open("./TokenDataset.csv", newline='', encoding='utf-8') as f:
             reader = csv.DictReader(f)
-            return [f"{row['Description (Gemini)']}" for row in reader]
+            return [f"{row['Tokens']}: {row['Description (Gemini)']}" for row in reader]
         
 class ChatGPTDescriptions(InputFunction):
     def __init__(self):
@@ -24,5 +24,5 @@ class ChatGPTDescriptions(InputFunction):
     def run(self) -> list[str]:
         with open("./TokenDataset.csv", newline='', encoding='utf-8') as f:
             reader = csv.DictReader(f)
-            return [f"{row['Description (ChatGPT)']}" for row in reader]
+            return [f"{row['Tokens']}: {row['Description (ChatGPT)']}" for row in reader]
             

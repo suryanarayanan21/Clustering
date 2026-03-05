@@ -10,8 +10,8 @@ class Dbscan(ClusteringFunction):
         super().__init__("DBSCAN")
     
     def run(self, tokens: list[str], embeddings: np.ndarray, distances: np.ndarray) -> pd.DataFrame:
-        model = DBSCAN(eps=0.7, min_samples=5, metric="euclidean")
-        pred = model.fit_predict(embeddings)
+        model = DBSCAN(eps=0.45, min_samples=2, metric="precomputed")
+        pred = model.fit_predict(distances)
         df = pd.DataFrame({"Token": tokens, "Cluster": pred})
         return pd.pivot_table(df, values="Token", index="Cluster", aggfunc=", ".join)
 
@@ -22,7 +22,7 @@ class Agglomerative(ClusteringFunction):
     
     def run(self, tokens:list[str], embeddings: np.ndarray, distances: np.ndarray) -> pd.DataFrame:
         model = AgglomerativeClustering(
-            n_clusters=7,
+            n_clusters=9,
             metric="precomputed",
             linkage="average"
         )
