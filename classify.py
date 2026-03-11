@@ -1,4 +1,5 @@
 import numpy as np
+import csv
 import pandas as pd
 from model import PreprocessFunction
 from sentence_transformers import SentenceTransformer
@@ -7,6 +8,10 @@ from sklearn.metrics.pairwise import cosine_distances
 from inputfunctions import getTokens
 
 tokens = getTokens()
+
+with open("./TokenDataset.csv", newline='', encoding='utf-8') as f:
+    reader = csv.DictReader(f)
+    strings = [f"{row['Tokens']}: {row['Description (Gemini)']}" for row in reader]
 
 classes = [
     'Fabrication',
@@ -18,7 +23,7 @@ classes = [
     'Design'
 ]
 
-pairs = [[t, c] for t in tokens for c in classes]
+pairs = [[t, c] for t in strings for c in classes]
 
 model = CE("cross-encoder/stsb-distilroberta-base")
 
