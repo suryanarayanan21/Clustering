@@ -1,8 +1,8 @@
-Cluster                            , Token
-Business Management                , "Presentation, Leadership, Business Planning, Supply Chain, Project management, Product Management, Strategic Decision Making, Accounting, Budgeting, Business Intelligence, Customer Experience, Public speaking, Team building, Liscensing"
-Data and computing                 , "Programming, Database Management, Machine Learning, Back-end Web development, Data Analytics, Data Modelling, Data structures and Algorithms, Big Data, Full-stack web development, Data mining, Artificial Intelligence, Medical Imaging, Telemedicine, Health Informatics"
-Design                             , "Prototyping, UX Design, Product Design, Interaction Design, Collaborative design, Human-centered Design practice, Packaging Design, Fashion, Experiential Design, User testing, 2D / 3D Sketching, Human computer interaction, User research, Sustainability"
-Entrepreneurship                   , "Competitive Analysis, Market Analysis, Problem solving, Entreprenuership, Marketing, Product Launch, Investment Planning, Business model development"
-Fabrication                        , "Manufacturing, Wood working, Metal Working, Laser cutting, 3D printing, Textiles, Material science"
-Physical and Embedded computing    , "Embedded Systems, IoT"
-Visual computing and Digital Design, "UI Design, Branding, Augmented Reality, 3D Modeling, Animation, Storyboarding, Virtual Reality, Data Visualization, 3D Simulation, Game Art, Front-end Web development, Visual Effects"
+Cluster,Token
+Business Management,"Presentation, Leadership, Business Planning, Supply Chain, Project management, Product Management, Strategic Decision Making, Accounting, Budgeting, Business Intelligence, Customer Experience, Public speaking, Team building, Liscensing"
+Data and computing,"Programming, Database Management, Machine Learning, Back-end Web development, Data Analytics, Data Modelling, Data structures and Algorithms, Big Data, Full-stack web development, Data mining, Artificial Intelligence, Medical Imaging, Telemedicine, Health Informatics"
+Design,"Prototyping, UX Design, Product Design, Interaction Design, Collaborative design, Human-centered Design practice, Packaging Design, Fashion, Experiential Design, User testing, 2D / 3D Sketching, Human computer interaction, User research, Sustainability"
+Entrepreneurship,"Competitive Analysis, Market Analysis, Problem solving, Entreprenuership, Marketing, Product Launch, Investment Planning, Business model development"
+Fabrication,"Manufacturing, Wood working, Metal Working, Laser cutting, 3D printing, Textiles, Material science"
+Physical and Embedded computing,"Embedded Systems, IoT"
+Visual computing and Digital Design,"UI Design, Branding, Augmented Reality, 3D Modeling, Animation, Storyboarding, Virtual Reality, Data Visualization, 3D Simulation, Game Art, Front-end Web development, Visual Effects"
