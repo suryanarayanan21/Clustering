@@ -23,13 +23,18 @@ classes = [
     'Design'
 ]
 
-pairs = [[t, c] for t in strings for c in classes]
+model = SentenceTransformer("all-mpnet-base-v2")
+s = model.encode(strings, convert_to_numpy = True)
+cl = model.encode(classes, convert_to_numpy = True)
 
-model = CE("cross-encoder/stsb-distilroberta-base")
+# pairs = [[t, c] for t in strings for c in classes]
 
-flat_distances = model.predict(pairs)
 
-distances = np.reshape(flat_distances, (len(tokens), 7))
+# flat_distances = model.predict(pairs)
+
+# distances = np.reshape(flat_distances, (len(tokens), 7))
+
+distances = cosine_distances(s, cl)
 
 output = pd.DataFrame(distances, index=tokens, columns=classes)
 
