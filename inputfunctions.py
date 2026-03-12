@@ -16,6 +16,15 @@ class GeminiDescriptions(InputFunction):
         with open("./TokenDataset.csv", newline='', encoding='utf-8') as f:
             reader = csv.DictReader(f)
             return [f"{row['Tokens']}: {row['Description (Gemini)']}" for row in reader]
+
+class SynonymDescriptions(InputFunction):
+    def __init__(self):
+        super().__init__("Synonym Descriptions")
+    
+    def run(self) -> list[str]:
+        with open("./TokenDataset.csv", newline='', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            return [f"{row['Tokens']}: {row['Description Syn']}" for row in reader]
         
 class ChatGPTDescriptions(InputFunction):
     def __init__(self):

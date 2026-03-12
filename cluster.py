@@ -5,12 +5,12 @@ and returns an output file with clusters for each combination of configurations
 import pandas as pd
 from model import ClusteringFunction, PreprocessFunction, InputFunction
 from clusteringfunctions import Dbscan, Agglomerative
-from inputfunctions import GeminiDescriptions, ChatGPTDescriptions, getTokens
+from inputfunctions import GeminiDescriptions, ChatGPTDescriptions, SynonymDescriptions, getTokens
 from preprocessfunctions import SentenceEmbeddings, CrossEncoder
 
 clustering_functions: list[ClusteringFunction] = [Dbscan(), Agglomerative()]
 preprocess_functions: list[PreprocessFunction] = [SentenceEmbeddings(), CrossEncoder()]
-input_functions: list[InputFunction] = [GeminiDescriptions(), ChatGPTDescriptions()]
+input_functions: list[InputFunction] = [GeminiDescriptions(), ChatGPTDescriptions(), SynonymDescriptions()]
 
 tokens = getTokens()
 inputs = [(x.name, x.run()) for x in input_functions]

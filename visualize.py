@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from scipy.special import softmax
 
-distribution = pd.read_csv("./distribution.csv")
+distribution = pd.read_csv("./distribution2.csv")
 tokens = distribution["Token"]
 
 distribution = distribution.drop(distribution.columns[0], axis=1)
@@ -23,7 +23,7 @@ fig, ax = plt.subplots(figsize=(20, 20))
 
 polypoints = np.vstack((vectors, vectors[0]))
 
-scaling_factor = 1
+scaling_factor = 0.5
 
 ax.plot([x[0] for x in polypoints], [x[1] for x in polypoints], color='black', linestyle='-', linewidth=1.5)
 
@@ -37,4 +37,4 @@ ax.scatter([scaling_factor*x[0] for x in points], [scaling_factor*x[1] for x in 
 for i, label in enumerate(tokens):
     ax.annotate(label, (scaling_factor*points[i][0], scaling_factor*points[i][1]), textcoords="offset points", xytext=(0,10), ha='center')
 
-fig.savefig("./visual.jpg")
+fig.savefig("./visual2.jpg")

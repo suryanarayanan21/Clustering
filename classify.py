@@ -11,7 +11,7 @@ tokens = getTokens()
 
 with open("./TokenDataset.csv", newline='', encoding='utf-8') as f:
     reader = csv.DictReader(f)
-    strings = [f"{row['Tokens']}: {row['Description (Gemini)']}" for row in reader]
+    strings = [f"{row['Tokens']}: {row['Description Syn']}" for row in reader]
 
 classes = [
     'Fabrication',
@@ -23,18 +23,17 @@ classes = [
     'Design'
 ]
 
-model = SentenceTransformer("all-mpnet-base-v2")
-s = model.encode(strings, convert_to_numpy = True)
-cl = model.encode(classes, convert_to_numpy = True)
+model = CE("cross-encoder/stsb-distilroberta-base")
+# s = model.encode(strings, convert_to_numpy = True)
+# cl = model.encode(classes, convert_to_numpy = True)
 
-# pairs = [[t, c] for t in strings for c in classes]
+pairs = [[t, c] for t in strings for c in classes]
 
+flat_distances = model.predict(pairs)
 
-# flat_distances = model.predict(pairs)
+distances = np.reshape(flat_distances, (len(tokens), 7))
 
-# distances = np.reshape(flat_distances, (len(tokens), 7))
-
-distances = cosine_distances(s, cl)
+# distances = cosine_distances(s, cl)
 
 output = pd.DataFrame(distances, index=tokens, columns=classes)
 
